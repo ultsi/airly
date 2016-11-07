@@ -19,10 +19,4 @@ app.listen(app.get('port'), function() {
 	console.log('Airly dev server is now running on port ', app.get('port'));
 });
 
-// dynamically include routes (Controllers)
-fs.readdirSync('./controllers').forEach(function (file) {
-  if(file.substr(-3) === '.js') {
-      const route = require('./controllers/' + file);
-      route.controller(app);
-  }
-});
+require('./routes.js').addRoutes(app);
