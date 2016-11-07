@@ -1,0 +1,28 @@
+{
+  "name": "airly",
+  "version": "1.0.0",
+  "description": "Air.ly website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ultsi/airly.git"
+  },
+  "author": "air.ly team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ultsi/airly/issues"
+  },
+  "homepage": "https://github.com/ultsi/airly#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "morgan": "^1.7.0",
+    "when": "^3.7.7"
+  }
+}
