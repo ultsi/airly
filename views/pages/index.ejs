@@ -5,7 +5,7 @@
     <% include ../partials/head.ejs %>
   </head>
 
-  <body>
+  <body ng-app="airlyApp">
     <% include ../partials/nav %>
 
     <%- include('../partials/'+page+'.ejs') %>
@@ -13,5 +13,7 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

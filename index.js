@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.listen(app.get('port'), function() {
-	console.log('Airly dev server is now running on port ', app.get('port'));
+	console.log('Airly dev server is now running on port', app.get('port'));
 });
 
 require('./routes.js').addRoutes(app);

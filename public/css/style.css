@@ -8,3 +8,8 @@ body, html {
 h1 {
   font-size: 2em;
 }
+
+.status {
+  font-size: 1.4em;
+  line-height: 2em;
+}
