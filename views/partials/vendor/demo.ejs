@@ -1,0 +1,28 @@
+
+<div class="container">
+  <h1>Shop example</h1>
+  <p>This contains the shop page with some functionality.</p>
+  <p>You are buying the following items:<br>
+    Pita<br>
+    Cola<br>
+    Shoes
+  </p>
+  <p>Select delivery method:</p>
+  <form method="POST" action="/demo">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Air.ly (+0.5€)</span>
+      <input type="radio" class="form-control" name="delivery" value="airly" id="post-radio" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Post (+6€)</span>
+      <input type="radio" class="form-control" name="delivery" value="post" id="post-radio" aria-describedby="basic-addon2">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Pick up from store (0€)</span>
+      <input type="radio" class="form-control" name="delivery" value="pickup" id="post-radio" aria-describedby="basic-addon3">
+    </div>
+    <div class="input-group">
+      <input type="submit" value="Click to pay">
+    </div>
+  </form>
+</div>
