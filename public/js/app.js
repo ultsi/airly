@@ -1,10 +1,10 @@
 'use strict';
 
-var app = angular.module('airlyApp', []);
+angular.module('airlyApp', [])
 
-app.controller('shopControl', function(){
+.controller('shopControl', function($scope){
   var self = this;
-
+  
   self.STATUS = {
     "OFF": 1,
     "CHARGING": 2,
