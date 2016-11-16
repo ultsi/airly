@@ -18,8 +18,8 @@ exports.otherdelivery = function(req, res){
 exports.chooseDelivery = function(req, res){
   // Choose Delivery method and redirect
   if(req.body.delivery === 'airly'){
-    res.redirect(301, '/airly');
+    res.redirect(301, '/demoshop_airly');
   } else {
-    res.redirect(301, '/otherdelivery');
+    res.redirect(301, '/demoshop_otherdelivery');
   }
 };
