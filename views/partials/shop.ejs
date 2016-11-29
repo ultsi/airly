@@ -4,7 +4,7 @@
 
   <ul class="status">
     <li ng-repeat="(i, drone) in shop.drones">
-      {{i}}. Drone - status: {{drone.status}}, gps: {{drone.gps}}
+      {{drone.name}}. Drone - status: {{drone.status}}, gps: {{drone.position}}
     </li>
   </ul>
 

@@ -1,11 +1,6 @@
 'use strict';
 
-angular.module('airlyApp', ['ngGeolocation'])
-
-.controller('shopControl', ['$scope', '$http', '$interval', '$geolocation', function($scope, $http, $interval){
-  var self = this;
-
-  self.STATUS = {
+var DRONE_STATUS = {
     "OFF": 1,
     "CHARGING": 2,
     "READY": 3,
@@ -13,16 +8,13 @@ angular.module('airlyApp', ['ngGeolocation'])
     "RETURNING": 5
   };
 
-  self.drones = [
-    {
-      "status": self.STATUS.OFF,
-      "gps": "62.28329, 39.292"
-    },
-    {
-      "status": self.STATUS.DELIVERING,
-      "gps": "62.28329, 42.592"
-    }
-  ];
+angular.module('airlyApp', ['ngGeolocation'])
+
+
+.controller('shopControl', ['$scope', '$http', '$interval', '$geolocation', function($scope, $http, $interval){
+  var self = this;
+
+  self.drones = {};
 
   $interval(function(){
     $http.get('/dronestatus')
@@ -35,30 +27,38 @@ angular.module('airlyApp', ['ngGeolocation'])
 
 }])
 
-.controller('droneControl', ['$scope', '$geolocation', '$interval', '$http', function($scope, $geolocation, $interval, $http){
+.controller('droneControl', ['$scope', '$geolocation', '$timeout', '$http', function($scope, $geolocation, $timeout, $http){
 
   var self = this;
 
-  self.positionData = {"data": true};
+  self.properties = {name: 'Asd', status: DRONE_STATUS.OFF, position: {}};
 
-  function update(position){
-    console.log(position);
-    self.positionData.position = {lat: position.coords.latitude, lon: position.coords.longitude};
-    $geolocation.getCurrentPosition({
-      timeout: 60000
-    }).then(update);
+  function update2() {
+    console.log("updated?");
+    if (!window.navigator.geolocation) {
+      console.log('Geolocation not supported.');
+    } else {
+        window.navigator.geolocation.getCurrentPosition(
+            function (position) {
+                console.log(position);
+                $scope.position = {lat: position.coords.latitude, lon: position.coords.longitude};
 
+                self.properties.position = $scope.position;
+                $http.post('/droneposition', self.properties)
+                .then(function(res){
+                  console.log(res);
+                }, function(err){
+                  console.log("position update failed! " + err);
+                });
 
-    $http.post('/droneposition', self.positionData)
-    .then(function(res){
-      console.log(res);
-    }, function(err){
-      console.log("position update failed! " + err);
-    });
+                $timeout(update2, 2000);
+            },
+            function (err) {
+                console.log(err);
+                $timeout(update2, 2000);
+            });
+    }
   }
-
-  $geolocation.getCurrentPosition({
-      timeout: 60000
-   }).then(update);
+  update2();
 
 }]);

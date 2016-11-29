@@ -8,8 +8,7 @@ var STATUS = {
   "RETURNING": 5
 };
 
-var drones = [
-];
+var drones = {};
 
 
 exports.index = function(req, res){
@@ -33,6 +32,7 @@ exports.serveDroneSimulationPage = function(req, res){
 };
 
 exports.dronePosition = function(req, res){
-  console.log(req);
+  drones[req._remoteAddress] = req.body;
+  console.log(drones);
   res.end();
 };
