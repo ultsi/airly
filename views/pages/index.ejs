@@ -6,6 +6,7 @@
   </head>
 
   <body ng-app="airlyApp">
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyCU7jdk0bL-HPIA0r_yjbQVUA-zWZaMMps'></script>
     <% include ../partials/nav %>
 
     <%- include('../partials/'+page+'.ejs') %>
@@ -15,6 +16,10 @@
 
     <script src="js/angular.min.js"></script>
     <script src="js/ngGeolocation.min.js"></script>
+    <script src="js/lodash.js"></script>
+    <script src="js/angular-simple-logger.js"></script>
+    <script src="js/angular-google-maps.min.js"></script>
+    <script src="js/lodash.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
