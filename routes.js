@@ -16,4 +16,8 @@ exports.addRoutes = function(app) {
 
   app.get('/dronesimulation', MainController.serveDroneSimulationPage);
   app.post('/droneposition', MainController.dronePosition);
+
+  app.get('/delivery/open', MainController.getOpenDeliveries);
+  app.post('/delivery/new', MainController.postNewDelivery);
+  app.post('/delivery/accept', MainController.acceptDelivery);
 };

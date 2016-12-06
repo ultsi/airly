@@ -1,6 +1,16 @@
-
-<h1>Drone simulation</h1>
-<p>Keep this page open to update location</p>
 <div ng-controller="droneControl as drone">
-  {{position}}
+  <h1>Drone (manual) interface</h1>
+  <label>Drone name: <input type="text" ng-model="drone.properties.name"></label>
+  <p>Current status: {{drone.getStatusText()}}</p>
+  <p>Keep this page open to update location</p>
+  <p>
+    {{position}}
+  </p>
+
+  <div class="deliveries">
+    <h2>Open deliveries</h2>
+    <div ng-repeat="delivery in drone.open_deliveries">
+      {{delivery.deliveryId}}. {{delivery.description}} <input type="submit" value="Accept delivery" ng-click="drone.pickDelivery(delivery.deliveryId)">
+    </div>
+  </div>
 </div>
