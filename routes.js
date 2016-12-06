@@ -12,12 +12,11 @@ exports.addRoutes = function(app) {
   app.get('/demo', DemoShopController.site);
   app.get('/demoshop_airly', DemoShopController.airly);
   app.get('/demoshop_otherdelivery', DemoShopController.otherdelivery);
-  app.post('/demoshop', DemoShopController.chooseDelivery);
+  app.post('/demoshop', MainController.chooseDelivery);
 
   app.get('/dronesimulation', MainController.serveDroneSimulationPage);
   app.post('/droneposition', MainController.dronePosition);
 
   app.get('/delivery/open', MainController.getOpenDeliveries);
-  app.post('/delivery/new', MainController.postNewDelivery);
   app.post('/delivery/accept', MainController.acceptDelivery);
 };

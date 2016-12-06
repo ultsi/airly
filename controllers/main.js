@@ -12,10 +12,7 @@ var DELIVERY_STATUS = {
   DELIVERED: 3
 };
 
-var deliveries = [
-  {deliveryId: 0, description: 'Shoes', status: DELIVERY_STATUS.PENDING},
-  {deliveryId: 1, description: 'Guitar', status: DELIVERY_STATUS.DELIVERING}
-];
+var deliveries = [];
 var drones = {};
 
 exports.index = function(req, res){
@@ -28,13 +25,22 @@ exports.shop = function(req, res){
   res.render('pages/index.ejs', {page: 'shop'});
 };
 
-exports.postNewDelivery = function(req, res){
-  var delivery = req.body.delivery;
-  delivery.deliveryId = deliveries.length;
-  delivery.status = DELIVERY_STATUS.PENDING;
-  deliveries[delivery.deliveryId] = delivery;
-  res.status(200);
-  res.end();
+// POST
+exports.chooseDelivery = function(req, res){
+  // Choose Delivery method and redirect
+  if(req.body.deliveryMethod === 'airly'){
+    console.log(req.body);
+    var deliveryItem = req.body.deliveryItem;
+    var delivery = {
+      deliveryId: deliveries.length,
+      status: DELIVERY_STATUS.PENDING,
+      description: deliveryItem
+    };
+    deliveries[delivery.deliveryId] = delivery;
+    res.redirect(301, '/demoshop_airly?delivery='+delivery.deliveryId);
+  } else {
+    res.redirect(301, '/demoshop_otherdelivery');
+  }
 };
 
 exports.getOpenDeliveries = function(req, res){
