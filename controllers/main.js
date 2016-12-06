@@ -17,7 +17,8 @@ var drones = {};
 
 exports.index = function(req, res){
   // serve main page from views
-  res.render('pages/index.ejs', {page: 'index'});
+  var deliveryId = req.query.delivery;
+  res.render('pages/index.ejs', {page: 'index', deliveryId: deliveryId});
 };
 
 exports.shop = function(req, res){
@@ -65,6 +66,7 @@ exports.droneStatus = function(req, res){
 exports.acceptDelivery = function(req, res){
   var deliveryId = req.body.deliveryId;
   deliveries[deliveryId].status = DELIVERY_STATUS.ACCEPTED;
+  deliveries[deliveryId].drone = drones[req._remoteAddress];
   drones[req._remoteAddress].delivery = deliveries[deliveryId];
   drones[req._remoteAddress].status = DRONE_STATUS.DELIVERING;
 };

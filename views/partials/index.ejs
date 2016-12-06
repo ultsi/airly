@@ -6,52 +6,8 @@
     <h2>Google maps here</h2>
     <div class="row">
       <ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'></ui-gmap-google-map>
-      <!--<script>
-          // Note: This example requires that you consent to location sharing when
-          // prompted by your browser. If you see the error "The Geolocation service
-          // failed.", it means you probably did not give permission for the browser to
-          // locate you.
-
-          function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: 60.10, lng: 25.0},
-              zoom: 6
-            });
-
-            var image = 'https://cdn2.iconfinder.com/data/icons/crystalproject/Open-Office-Icons/stock_draw-circle-16.png';
-            var beachMarker = new google.maps.Marker({
-              position: {lat: 60.10, lng: 25.0},
-              map: map,
-              icon: image
-            });
-
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                };
-
-                beachMarker.setPosition(pos);
-                map.setCenter(pos);
-                map.setZoom(1);
-              }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-              });
-            } else {
-              // Browser doesn't support Geolocation
-              handleLocationError(false, infoWindow, map.getCenter());
-            }
-          }
-
-          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-          }
-        </script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU7jdk0bL-HPIA0r_yjbQVUA-zWZaMMps&callback=initMap">
-        </script>--->
-      </div>
+      Delivery: <%= deliveryId %>
+    </div>
   </div>
   <div class="col-md-4 status">
     <h2>Status</h2>
