@@ -77,6 +77,7 @@ exports.serveDroneSimulationPage = function(req, res){
 
 exports.dronePosition = function(req, res){
   if(drones[req._remoteAddress]){
+    drones[req._remoteAddress].name = req.body.name;
     drones[req._remoteAddress].position = req.body.position;
   } else {
     drones[req._remoteAddress] = req.body;
