@@ -66,7 +66,7 @@ exports.droneStatus = function(req, res){
 exports.acceptDelivery = function(req, res){
   var deliveryId = req.body.deliveryId;
   deliveries[deliveryId].status = DELIVERY_STATUS.ACCEPTED;
-  deliveries[deliveryId].drone = drones[req._remoteAddress];
+  deliveries[deliveryId].droneAddress = req._remoteAddress;
   drones[req._remoteAddress].delivery = deliveries[deliveryId];
   drones[req._remoteAddress].status = DRONE_STATUS.DELIVERING;
 };
