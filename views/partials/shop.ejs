@@ -1,6 +1,6 @@
 
 <div class="container" ng-app="airlyApp" ng-controller="shopControl as shop">
-  <h1>Air.ly shop view</h1>
+  <!--h1>Air.ly shop view</h1-->
 
   <ul class="status">
     <li ng-repeat="(i, drone) in shop.drones">
@@ -8,11 +8,24 @@
     </li>
   </ul>
 
-  <div class="col-md-8">
-    <h2>Google maps here</h2>
+  <div class="col-md-10">
+    <!--h2>Google maps here</h2-->
     <div class="row">
       <ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'></ui-gmap-google-map>
     </div>
   </div>
-
+  <div class="col-md-2 status">
+    <h2 class="airly-font">Tilanne</h2>
+    <ul>
+      <li>
+        Lastataan
+      </li>
+      <li>
+        Lennetään
+      </li>
+      <li>
+        Perillä!
+      </li>
+    </ul>
+  </div>
 </div>

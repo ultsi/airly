@@ -1,5 +1,13 @@
 /* Style.css for Air.ly */
 
+/*
+Orange - #ef6c00
+Cyan - #4db6ac
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+
 body, html {
   margin: 0;
   padding: 0;
@@ -17,5 +25,33 @@ h1 {
 }
 
 .angular-google-map-container {
-  height: 400px;
+  height: 60em;
 } 
+
+.airly-font{
+  color: #4db6ac;
+  font-weight: bolder;
+  padding: 1em 0.5em;
+  font-size: 2em;
+}
+
+.airly-font-logo-big{
+  font-family: 'Droid Sans', sans-serif;
+  color: white;
+  font-weight: bolder;
+  float: left;
+  height: 50px;
+  padding: 0.5em;
+  font-size: 2.5em;
+  line-height: 20px;
+}
+
+.airly-font-logo-first{
+  font-size: 2em;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.airly-nav-bar{
+  background-color: #ef6c00;
+  padding: 1em;
+}
