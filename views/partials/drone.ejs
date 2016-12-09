@@ -12,7 +12,7 @@
       <h2>Open deliveries</h2>
       <div ng-repeat="delivery in drone.open_deliveries">
         <div class="btn-group">
-        <button type="button" class="btn btn-primary disabled">{{delivery.deliveryId + 1}} - {{delivery.description}}</button>
+        <button type="button" class="btn btn-primary disabled" style="cursor:default;">{{delivery.deliveryId + 1}} - {{delivery.description}}</button>
         <input class="btn btn-primary" type="submit" value="Accept delivery" ng-click="drone.pickDelivery(delivery.deliveryId)">
         </div>
       </div>
