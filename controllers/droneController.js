@@ -16,22 +16,23 @@ exports.getDroneStatus = function (req, res) {
 };
 
 exports.getDronePosition = function (req, res) {
-    if (drones[req._remoteAddress]) {
-        drones[req._remoteAddress].name = req.body.name;
-        drones[req._remoteAddress].position = req.body.position;
+    if (drones[req.headers['user-agent']]) {
+        drones[req.headers['user-agent']].name = req.body.name;
+        drones[req.headers['user-agent']].position = req.body.position;
     }
     else {
-        drones[req._remoteAddress] = req.body;
+        drones[req.headers['user-agent']] = req.body;
     }
-    res.write(JSON.stringify(drones[req._remoteAddress]));
+    console.log(drones);
+    res.write(JSON.stringify(drones[req.headers['user-agent']]));
     res.status(200);
     res.end();
 };
 
 exports.acceptDelivery = function (req, res) {
     var deliveryId = req.body.deliveryId;
-    drones[req._remoteAddress].deliveryId = deliveryId;
-    drones[req._remoteAddress].status = DRONE_STATUS.DELIVERING;
+    drones[req.headers['user-agent']].deliveryId = deliveryId;
+    drones[req.headers['user-agent']].status = DRONE_STATUS.DELIVERING;
 };
 
 exports.getDrones = function (req, res) {
