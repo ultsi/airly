@@ -1,16 +1,21 @@
-<div ng-controller="droneControl as drone">
-  <h1>Drone (manual) interface</h1>
-  <label>Drone name: <input type="text" ng-model="drone.properties.name"></label>
-  <p>Current status: {{drone.getStatusText()}}</p>
-  <p>Keep this page open to update location</p>
-  <p>
-    {{position}}
-  </p>
+<div class="container">
+  <div ng-controller="droneControl as drone">
+    <h1>Drone (manual) interface</h1>
+    <label>Drone name: <input type="text" ng-model="drone.properties.name"></label>
+    <p>Current status: {{drone.getStatusText}}</p>
+    <p>Keep this page open to update location</p>
+    <p>
+      Lat: {{position.lat}}, Long: {{position.lng}}
+    </p>
 
-  <div class="deliveries">
-    <h2>Open deliveries</h2>
-    <div ng-repeat="delivery in drone.open_deliveries">
-      {{delivery.deliveryId}}. {{delivery.description}} <input type="submit" value="Accept delivery" ng-click="drone.pickDelivery(delivery.deliveryId)">
+    <div class="deliveries">
+      <h2>Open deliveries</h2>
+      <div ng-repeat="delivery in drone.open_deliveries">
+        <div class="btn-group">
+        <button type="button" class="btn btn-primary disabled">{{delivery.deliveryId + 1}} - {{delivery.description}}</button>
+        <input class="btn btn-primary" type="submit" value="Accept delivery" ng-click="drone.pickDelivery(delivery.deliveryId)">
+        </div>
+      </div>
     </div>
   </div>
 </div>

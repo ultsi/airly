@@ -1,0 +1,30 @@
+<div class="container" ng-app="airlyApp" ng-controller="shopControl as shop">
+  <ul class="status">
+    <!--li ng-repeat="(i, drone) in shop.drones">
+      {{drone.name}}. Drone - status: {{drone.status}}
+    </li-->
+  </ul>
+
+  <div class="col-md-10">
+    <div class="row">
+      <ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'></ui-gmap-google-map>
+    </div>
+  </div>
+  <div class="col-md-2 status" ng-controller="droneControl as drone">
+    <h2 class="airly-font">Tilanne</h2>
+    <ul>
+      <li ng-class="{'text-success': currentDroneStatus > 0}">
+        Etsitään drone
+      </li>
+      <li ng-class="{'text-success': currentDroneStatus > 1}">
+        Lastataan
+      </li>
+      <li ng-class="{'text-success': currentDroneStatus > 2}">
+        Lennetään
+      </li>
+      <li ng-class="{'text-success': currentDroneStatus > 3}">
+        Perillä!
+      </li>
+    </ul>
+  </div>
+</div>

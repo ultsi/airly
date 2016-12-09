@@ -1,31 +1,111 @@
-
-<div class="container" ng-app="airlyApp" ng-controller="shopControl as shop">
-  <!--h1>Air.ly shop view</h1-->
-
-  <ul class="status">
-    <li ng-repeat="(i, drone) in shop.drones">
-      {{drone.name}}. Drone - status: {{drone.status}}, gps: {{drone.position}}
-    </li>
-  </ul>
-
-  <div class="col-md-10">
-    <!--h2>Google maps here</h2-->
+<div class="container">
     <div class="row">
-      <ui-gmap-google-map center='map.center' zoom='map.zoom' events='map.events'></ui-gmap-google-map>
+        <div class="col-xs-12">
+            <h1>Shop example</h1>
+            <p>This contains the shop page with some functionality.</p>
+        </div>
     </div>
-  </div>
-  <div class="col-md-2 status">
-    <h2 class="airly-font">Tilanne</h2>
-    <ul>
-      <li>
-        Lastataan
-      </li>
-      <li>
-        Lennetään
-      </li>
-      <li>
-        Perillä!
-      </li>
-    </ul>
-  </div>
+    <form method="POST" action="/deliveryHandler">
+        <div class="row">
+            <div class="btn-group" data-toggle="buttons">
+                <div class="col-xs-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="http://lorempixel.com/output/food-q-c-240-240-9.jpg" alt="Burger">
+                        <div class="card-block">
+                            <h4 class="card-title">Burger</h4>
+                            <p class="card-text">Delicious looking burger.</p>
+                            <label class="btn btn-primary">Select
+                            <input style='display: none;' type="radio" name="deliveryItem" value="burger">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="http://lorempixel.com/output/technics-q-c-240-240-7.jpg" alt="Earbuds">
+                        <div class="card-block">
+                            <h4 class="card-title">Earbuds</h4>
+                            <p class="card-text">Sleek and compartable earbuds.</p>
+                            <label class="btn btn-primary">Select
+                            <input style='display: none;' type="radio" name="deliveryItem" value="earbuds">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="http://lorempixel.com/output/technics-q-c-240-240-3.jpg" alt="Laptop">
+                        <div class="card-block">
+                            <h4 class="card-title">Laptop</h4>
+                            <p class="card-text">Powerfull laptop.</p>
+                            <label class="btn btn-primary">Select
+                            <input style='display: none;' type="radio" name="deliveryItem" value="laptop">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="http://lorempixel.com/output/technics-q-c-240-240-1.jpg" alt="Ipad">
+                        <div class="card-block">
+                            <h4 class="card-title">Ipad</h4>
+                            <p class="card-text">Apples newest Ipad.</p>
+                            <label class="btn btn-primary">Select
+                            <input style='display: none;' type="radio" name="deliveryItem" value="ipad">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="btn-group" data-toggle="buttons">
+                <div class="col-xs-12">
+                    <ul class="list-group">
+                    <li class="list-group-item airly_list_group"><label class="btn btn-primary">Air.ly (+1€)
+                        <input style='display: none;' type="radio" name="deliveryMethod" value="airly">
+                    </label></li>
+                    <li class="list-group-item airly_list_group"><label class="btn btn-primary">Post (+6€)
+                        <input style='display: none;' type="radio" name="deliveryMethod" value="post">
+                    </label></li>
+                    <li class="list-group-item airly_list_group"><label class="btn btn-primary">Pick up from store (0€)
+                        <input style='display: none;' type="radio" name="deliveryMethod" value="pickup">
+                    </label></li>
+                    <ul class="list-group">
+                </div>
+            </div>
+        </div>
+        <ul class="list-group">
+        <div class="input-group">
+            <li class="list-group-item airly_list_group"><input class="btn btn-primary" type="submit" value="Click to pay"></li>
+        </div>
+        </ul>
+    </form>
 </div>
+<!--
+<div class="container">
+<form method="POST" action="/deliveryHandler">
+  <h1>Shop example</h1>
+  <p>This contains the shop page with some functionality.</p>
+  <p>Select the item you want to buy:<br>
+    <label>Pizza <input type="radio" name="deliveryItem" value="pizza" checked></label><br/>
+    <label>Shoes <input type="radio" name="deliveryItem" value="shoes"></label><br/>
+    <label>Screwdriver <input type="radio" name="deliveryItem" value="screwdriver"></label>
+  </p>
+  <p>Select delivery method:</p>
+      <label>Air.ly (+0.5€)
+        <input type="radio" name="deliveryMethod" value="airly" checked>
+      </label><br/>
+      <label>
+        Post (+6€)
+        <input type="radio" name="deliveryMethod" value="post">
+      </label><br/>
+      <label>Pick up from store (0€)
+      <input type="radio" name="deliveryMethod" value="pickup">
+    </label><br/>
+    <div class="input-group">
+      <input type="submit" value="Click to pay">
+    </div>
+  </form>
+</div>
+-->
